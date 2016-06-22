@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font: 13px Helvetica, Arial; }
+        form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
+        form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
+        form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
+        #messages { list-style-type: none; margin: 0; padding: 0; float: left; width: 70%; }
+        #messages li { padding: 5px 10px; color:#083a80; background: #eee;}
+        #messages .me {text-align: right; color:crimson; background:azure}
+        #messages .notice {text-align: center; color:darkslateblue; font-size: large}
+        #messages .file {text-align: center; color:crimson; font-size: large}
+        /*#messages li:nth-child(odd) { background: #eee; }*/
+        #users {list-style-type:none; }
+        #files {list-style-type:none; }
+        #room{width: 10%; float: left;}
+        #room li { padding: 5px 10px; font-size: 17px;}
+        #room .on {color:crimson; font-size: 23px; }
+        #loading_div {position: absolute; height:100%; width:100%}
+        #loading {position: absolute; left:50%; top: 50%; margin: -100px 0 0 -100px;}
+        #file_div { position: fixed; bottom: 45px; width: 100%; }
+        #progress_div {position: fixed; bottom:45px; left:50%; width: 50%;  height: 30px;  background-color: grey; display: none;}
+        #progress {position: absolute; width: 0;  height: 100%;  background-color: green;  }
+        #progress_text {position: absolute; left:50%; font-weight: 600; color:black;
+        #sub_div {width: 20%; float: left;}
+    </style>
+</head>
+<body>
+<div id="loading_div">
+    <img id='loading' src="./loading.gif"/>
+</div>
+<div id="chat_div" style="display: none;">
+    <ul id="room">
+        <li data-room="1room" class="on">1room</li>
+        <li data-room="2room">2room</li>
+        <li data-room="3room">3room</li>
+        <li data-room="4room">4room</li>
+    </ul>
+    <ul id="messages"></ul>
+    <div id="sub_div">
+        <ul id="users">
+            <!--<li>ddd</li>
+            <li>ddd</li>
+            <li>ddd</li>
+            <li>ddd</li>-->
+        </ul>
+        <ul id="fileList">
+            <!--<li>fff</li>
+            <li>fff</li>
+            <li>fff</li>
+            <li>fff</li>-->
+        </ul>
+    </div>
+
+    <form action="./" id="f">
+        <input type="text" id="m" autocomplete="off" /><button id="button">Send</button>
+    </form>
+    <div id="file_div">
+    <input type="file" id="file"/>
+    </div>
+    <div id="progress_div">
+        <div id="progress"><span id="progress_text">0%</span></div>
+    </div>
+</div>
+</body>
+</html>
+<script src="js/lib/modernizr.js" type="text/javascript"></script>
+<script src="js/types.js"></script>
+<script data-main="js/home" src="js/lib/require-jquery.js"></script>
+
+

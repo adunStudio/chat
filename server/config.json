@@ -1,0 +1,8 @@
+{
+"port": 7777,
+"downport": 5000,
+"debug_level": "info",
+"db_url": "",
+"db_id": "",
+"db_pw": ""
+}
